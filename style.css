@@ -8,14 +8,22 @@ body {
     color: white;
     border: 1px solid #cccccc;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
-.value-input {
+.value-input,
+.value-history {
     color: red;
     font-size: 3rem;
     margin: 10px 10px 10px 0;
+}
+
+.value-history {
+    height: 1.75rem;
+    font-size: 2rem;
+    color: rgba(255, 0, 0, 0.7);
 }
 
 .calc-container {

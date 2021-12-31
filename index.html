@@ -3,31 +3,33 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <title>Calculator</title>
         <link rel="stylesheet" href="style.css">
         <script src="app.js" defer></script>
     </head>
     <body>
         <main class="calc-container">
             <div class="calc-screen">
+                <h2 class="value-history"></h2>
                 <h2 class="value-input">0</h2>
             </div>
             <div class="calc-btns">
-                <div class="calc-btn">7</div>
-                <div class="calc-btn">8</div>
-                <div class="calc-btn">9</div>
+                <div class="calc-btn digit">7</div>
+                <div class="calc-btn digit">8</div>
+                <div class="calc-btn digit">9</div>
                 <div class="calc-btn" id="clear-btn">Clear</div>
-                <div class="calc-btn">4</div>
-                <div class="calc-btn">5</div>
-                <div class="calc-btn">6</div>
-                <div class="calc-btn">&#215;</div>
-                <div class="calc-btn">&#247;</div>
-                <div class="calc-btn">1</div>
-                <div class="calc-btn">2</div>
-                <div class="calc-btn">3</div>
-                <div class="calc-btn">&#43;</div>
-                <div class="calc-btn">&minus;</div>
-                <div class="calc-btn">0</div>
-                <div class="calc-btn">.</div>
+                <div class="calc-btn digit">4</div>
+                <div class="calc-btn digit">5</div>
+                <div class="calc-btn digit">6</div>
+                <div class="calc-btn operator">&#215;</div>
+                <div class="calc-btn operator">&#247;</div>
+                <div class="calc-btn digit">1</div>
+                <div class="calc-btn digit">2</div>
+                <div class="calc-btn digit">3</div>
+                <div class="calc-btn operator">&#43;</div>
+                <div class="calc-btn operator">&minus;</div>
+                <div class="calc-btn digit">0</div>
+                <div class="calc-btn digit">.</div>
                 <div class="calc-btn">(-)</div>
                 <div class="calc-btn" id="equal-btn">=</div>
             </div>
