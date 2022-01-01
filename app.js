@@ -41,7 +41,7 @@ function digitBtnHandler(e) {
     
     if (clickedValue === 0 && e.target.textContent !== ".") {
         clickedValue += parseInt(e.target.textContent);
-    } else if (e.target.textContent === "." && clickedValue.includes(".")) {
+    } else if (e.target.textContent === "." && clickedValue.toString().includes(".")) {
         clickedValue += "";
     } else {
         clickedValue += e.target.textContent;
