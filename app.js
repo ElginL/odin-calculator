@@ -31,9 +31,14 @@ function operate(operator, num1, num2) {
 let clickedValue = 0;
 let leftOperand = 0;
 let result = 0;
+let digitUpdatePaused = false;
 let selectedOperator = null;
 
 function digitBtnHandler(e) {
+    if (digitUpdatePaused) {
+        clearScreen();
+    }
+    
     if (clickedValue === 0 && e.target.textContent !== ".") {
         clickedValue += parseInt(e.target.textContent);
     } else if (e.target.textContent === "." && clickedValue.includes(".")) {
@@ -41,6 +46,7 @@ function digitBtnHandler(e) {
     } else {
         clickedValue += e.target.textContent;
     }
+
     screenSelected.textContent = clickedValue;
 }
 
@@ -49,6 +55,7 @@ function clearScreen() {
     leftOperand = 0;
     result = 0;
     selectedOperator = null;
+    digitUpdatePaused = false;
     screenSelected.textContent = clickedValue;
     screenHistory.textContent = "";
 }
@@ -77,6 +84,7 @@ function operatorHandler(e) {
     clickedValue = 0;
     screenSelected.textContent = clickedValue;
     
+    digitUpdatePaused = false;
     result = 0;
 }
 
@@ -90,6 +98,7 @@ function equalHandler(e) {
             screenSelected.textContent = result;
             leftOperand = result;
             selectedOperator = null;
+            digitUpdatePaused = true;
         }
     }
 }
@@ -103,7 +112,7 @@ function negateHandler(e) {
 
 function deleteHandler(e) {
     const len = screenSelected.textContent.length;
-    if (screenSelected.textContent !== "0" && result === 0) {
+    if (screenSelected.textContent !== "0" && screenSelected.textContent !== "Error" && result === 0) {
         if (len === 1) {
             screenSelected.textContent = "0";
             clickedValue = 0;
