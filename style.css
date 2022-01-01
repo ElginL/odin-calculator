@@ -27,7 +27,7 @@ body {
 }
 
 .calc-container {
-    width: 60vw;
+    width: 50vw;
     height: 60vh;
     margin-top: 100px;
     display: flex;
@@ -41,7 +41,6 @@ body {
     flex-grow: 1;
 }
 
-#clear-btn,
 #equal-btn {
     grid-column: 4 / span 2;
 }
@@ -53,4 +52,8 @@ body {
     align-items: center;
     font-size: 2rem;
     color: white;
+}
+
+.calc-btn:hover {
+    background-color: #cccccc5b;
 }

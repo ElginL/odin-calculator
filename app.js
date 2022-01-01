@@ -36,6 +36,8 @@ let selectedOperator = null;
 function digitBtnHandler(e) {
     if (clickedValue === 0 && e.target.textContent !== ".") {
         clickedValue += parseInt(e.target.textContent);
+    } else if (e.target.textContent === "." && clickedValue.includes(".")) {
+        clickedValue += "";
     } else {
         clickedValue += e.target.textContent;
     }
@@ -92,6 +94,26 @@ function equalHandler(e) {
     }
 }
 
+function negateHandler(e) {
+    if (screenSelected.textContent !== "0" && result === 0) {
+        screenSelected.textContent = "-" + screenSelected.textContent;
+    }
+    clickedValue = -clickedValue;
+}
+
+function deleteHandler(e) {
+    const len = screenSelected.textContent.length;
+    if (screenSelected.textContent !== "0" && result === 0) {
+        if (len === 1) {
+            screenSelected.textContent = "0";
+            clickedValue = 0;
+        } else {
+            screenSelected.textContent = screenSelected.textContent.substring(0, len - 1);
+            clickedValue = Math.trunc(clickedValue / 10);
+        }
+    }
+}
+
 const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach(btn => btn.addEventListener("click", digitBtnHandler));
 
@@ -103,6 +125,12 @@ operatorButtons.forEach(btn => btn.addEventListener("click", operatorHandler));
 
 const equalButton = document.getElementById("equal-btn");
 equalButton.addEventListener("click", equalHandler);
+
+const negateBtn = document.querySelector(".negate");
+negateBtn.addEventListener("click", negateHandler);
+
+const deleteBtn = document.querySelector(".delete");
+deleteBtn.addEventListener("click", deleteHandler);
 
 const screenSelected = document.querySelector(".value-input");
 const screenHistory = document.querySelector(".value-history");
